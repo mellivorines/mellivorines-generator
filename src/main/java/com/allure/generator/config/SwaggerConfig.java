@@ -14,7 +14,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 /**
  * 功能描述:
  *
- * @author lWX1117952
+ * @author lilinxi
  * @since 2022-10-19
  */
 @Configuration
