@@ -1,9 +1,9 @@
 
 package com.allure.generator.service;
 
-import java.util.List;
+import com.allure.generator.repository.entity.UserInfoPO;
 
-import com.allure.generator.repository.entity.UserInfoEntity;
+import java.util.List;
 
 /**
  * 功能描述:
@@ -17,13 +17,13 @@ public interface IUserInfoService {
      *
      * @return 返回结果
      */
-    List<UserInfoEntity> getAllUserInfo();
+    List<UserInfoPO> getAllUserInfo();
 
     /**
      * 添加用户
      * 
-     * @param userInfoEntity 用户信息
+     * @param userInfoPO 用户信息
      * @return 返回是否成功
      */
-    String saveUserInfo(UserInfoEntity userInfoEntity);
+    String saveUserInfo(UserInfoPO userInfoPO);
 }

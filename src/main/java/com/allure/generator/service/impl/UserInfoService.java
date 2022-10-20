@@ -1,17 +1,13 @@
 
 package com.allure.generator.service.impl;
 
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.List;
-
+import com.allure.generator.repository.dao.IUserInfoDao;
+import com.allure.generator.repository.entity.UserInfoPO;
+import com.allure.generator.service.IUserInfoService;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import com.allure.generator.repository.dao.IUserInfoDao;
-import com.allure.generator.repository.entity.UserInfoEntity;
-import com.allure.generator.service.IUserInfoService;
-
-import lombok.AllArgsConstructor;
+import java.util.List;
 
 /**
  * 功能描述:
@@ -31,24 +27,24 @@ public class UserInfoService implements IUserInfoService {
      * @return 返回结果
      */
     @Override
-    public List<UserInfoEntity> getAllUserInfo() {
-        List<UserInfoEntity> list = userInfoDao.list();
+    public List<UserInfoPO> getAllUserInfo() {
+        List<UserInfoPO> list = userInfoDao.list();
         return list;
     }
 
     /**
      * 添加用户
      *
-     * @param userInfoEntity 用户信息
+     * @param userInfoPO 用户信息
      * @return 返回是否成功
      */
     @Override
-    public String saveUserInfo(UserInfoEntity userInfoEntity) {
+    public String saveUserInfo(UserInfoPO userInfoPO) {
 
-        userInfoEntity.setCreator("lilinxi");
-        userInfoEntity.setUpdater("lilinxi");
+        userInfoPO.setCreator("lilinxi");
+        userInfoPO.setUpdater("lilinxi");
 
-        boolean save = userInfoDao.save(userInfoEntity);
+        boolean save = userInfoDao.save(userInfoPO);
         return String.valueOf(save);
     }
 }

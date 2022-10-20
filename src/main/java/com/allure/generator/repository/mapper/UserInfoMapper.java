@@ -3,7 +3,7 @@ package com.allure.generator.repository.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.allure.generator.repository.entity.UserInfoEntity;
+import com.allure.generator.repository.entity.UserInfoPO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -13,5 +13,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2022-10-19
  */
 @Mapper
-public interface UserInfoMapper extends BaseMapper<UserInfoEntity> {
+public interface UserInfoMapper extends BaseMapper<UserInfoPO> {
 }

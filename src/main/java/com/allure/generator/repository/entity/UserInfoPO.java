@@ -20,7 +20,7 @@ import lombok.EqualsAndHashCode;
 @TableName("allure_user_info")
 @EqualsAndHashCode(callSuper = true)
 @ApiModel("用户实体映射类")
-public class UserInfoEntity extends BaseEntity {
+public class UserInfoPO extends BaseEntity {
     /**
      * 主键
      */

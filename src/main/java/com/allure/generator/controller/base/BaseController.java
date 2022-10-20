@@ -1,18 +1,17 @@
 
 package com.allure.generator.controller.base;
 
-import java.util.function.Function;
-
+import com.allure.generator.constants.Result;
+import com.allure.generator.constants.ResultCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.allure.generator.constants.Result;
-import com.allure.generator.constants.ResultCode;
+import java.util.function.Function;
 
 /**
  * 功能描述:基础的Controller
  *
- * @author lWX1117952
+ * @author lilinxi
  * @since 2022-10-19
  */
 public class BaseController {
