@@ -139,8 +139,8 @@ CREATE TABLE `allure_gen_project_modify`  (
 -- ----------------------------
 -- Records of allure_gen_project_modify
 -- ----------------------------
-INSERT INTO `allure_gen_project_modify` VALUES (1, 'maku-boot', 'maku', 'net.maku', 'D:/makunet/maku-boot', 'baba-boot', 'baba', 'com.baba', '.git,.idea,target,logs', 'java,xml,yml,txt', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_project_modify` VALUES (2, 'maku-cloud', 'maku', 'net.maku', 'D:/makunet/maku-cloud', 'baba-cloud', 'baba', 'com.baba', '.git,.idea,target,logs', 'java,xml,yml,txt', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `allure_gen_project_modify` VALUES (1, 'allure-boot', 'maku', 'net.maku', 'D:/allure/allure-boot', 'baba-boot', 'baba', 'com.baba', '.git,.idea,target,logs', 'java,xml,yml,txt', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `allure_gen_project_modify` VALUES (2, 'allure-cloud', 'maku', 'net.maku', 'D:/allure/allure-cloud', 'baba-cloud', 'baba', 'com.baba', '.git,.idea,target,logs', 'java,xml,yml,txt', NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for allure_gen_table
