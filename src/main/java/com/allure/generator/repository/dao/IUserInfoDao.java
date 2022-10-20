@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 /**
  * 功能描述:
  *
- * @author lWX1117952
+ * @author lilinxi
  * @since 2022-10-19
  */
 public interface IUserInfoDao extends IService<UserInfoEntity> {
