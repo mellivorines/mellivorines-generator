@@ -4,7 +4,7 @@ package com.allure.generator.constants;
 /**
  * 功能描述:
  *
- * @author lWX1117952
+ * @author lilinxi
  * @since 2022-10-19
  */
 public enum ResultCode {
