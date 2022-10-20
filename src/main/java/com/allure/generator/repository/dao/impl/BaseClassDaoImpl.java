@@ -11,7 +11,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 /**
  * 功能描述:实体基类相关
  *
- * @author lWX1117952
+ * @author lilinxi
  * @since 2022-10-20
  */
 @Service
