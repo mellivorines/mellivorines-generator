@@ -37,7 +37,7 @@ CREATE TABLE `allure_gen_base_class`  (
 -- ----------------------------
 -- Records of allure_gen_base_class
 -- ----------------------------
-INSERT INTO `allure_gen_base_class` VALUES (1, 'net.maku.framework.common.entity', 'BaseEntity', 'id,creator,create_time,updater,update_time,version,deleted', '使用该基类，则需要表里有这些字段', NULL, NULL, NULL, NULL);
+INSERT INTO `allure_gen_base_class` VALUES (1, 'com.allure.generator.common.entity', 'BaseEntity', 'id,creator,create_time,updater,update_time,version,deleted', '使用该基类，则需要表里有这些字段', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for allure_gen_datasource
