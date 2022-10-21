@@ -1,14 +1,11 @@
 
 package com.allure.generator.model;
 
-import javax.validation.constraints.NotBlank;
-
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+
+import javax.validation.constraints.NotBlank;
 
 /**
  * 功能描述:
@@ -19,12 +16,6 @@ import lombok.Data;
 @Data
 @ApiModel("实体类的基类视图模型")
 public class BaseClassVO {
-    /**
-     * 主键
-     */
-    @ApiModelProperty("id")
-    @TableId(type = IdType.AUTO)
-    private Long id;
 
     /**
      * 基类包名

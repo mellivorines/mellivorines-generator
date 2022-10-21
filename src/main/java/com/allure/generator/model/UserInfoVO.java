@@ -1,9 +1,6 @@
 
 package com.allure.generator.model;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -17,12 +14,6 @@ import lombok.Data;
 @Data
 @ApiModel("用户信息视图模型")
 public class UserInfoVO {
-    /**
-     * 主键
-     */
-    @ApiModelProperty("id")
-    @TableId(type = IdType.AUTO)
-    private Long id;
 
     /**
      * 用户名
