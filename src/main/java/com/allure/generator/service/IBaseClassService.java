@@ -3,43 +3,43 @@ package com.allure.generator.service;
 
 import java.util.List;
 
-import com.allure.generator.model.BaseClassVO;
+import com.allure.generator.model.UserInfoVO;
 
 /**
- * 功能描述:实体基类相关
+ * 功能描述:
  *
  * @author lilinxi
- * @since 2022-10-20
+ * @since 2022-10-19
  */
-public interface IBaseClassService {
+public interface IUserInfoService {
     /**
-     * 获取实体基类所有数据
+     * 获取所有用户信息
      *
      * @return 返回结果
      */
-    List<BaseClassVO> getAll();
+    List<UserInfoVO> getAllUserInfo();
 
     /**
-     * 保存实体基类
+     * 添加用户
      *
-     * @param baseClassVO 实体基类数据
-     * @return 返回是否保存成功
+     * @param userInfoVO 用户信息
+     * @return 返回是否成功
      */
-    String saveBaseClass(BaseClassVO baseClassVO);
+    String saveUserInfo(UserInfoVO userInfoVO);
 
     /**
-     * 更新实体基类
+     * 更新用户
      *
-     * @param baseClassVO 实体基类数据
-     * @return 返回是否更新成功
+     * @param userInfoVO 用户信息
+     * @return 返回是否成功
      */
-    String updateBaseClass(BaseClassVO baseClassVO);
+    String updateUserInfo(UserInfoVO userInfoVO);
 
     /**
-     * 删除实体基类
+     * 删除用户
      *
      * @param ids 主键id
-     * @return 返回是否删除成功
+     * @return 返回是否成功
      */
-    String deleteBaseClass(List<Integer> ids);
+    String deleteUserInfo(List<Integer> ids);
 }
