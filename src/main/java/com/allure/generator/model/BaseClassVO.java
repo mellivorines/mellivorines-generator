@@ -8,7 +8,7 @@ import lombok.Data;
 import javax.validation.constraints.NotBlank;
 
 /**
- * 功能描述:
+ * 功能描述:实体类的基类视图模型
  *
  * @author lilinxi
  * @since 2022-10-21

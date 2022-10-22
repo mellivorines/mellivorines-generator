@@ -12,7 +12,7 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 /**
- * 功能描述:
+ * 功能描述:swagger配置
  *
  * @author lilinxi
  * @since 2022-10-19

@@ -11,7 +11,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * 功能描述:
+ * 功能描述:实体类的基类映射类
  *
  * @author lilinxi
  * @since 2022-10-20

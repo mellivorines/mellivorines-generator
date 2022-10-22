@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * 功能描述:
+ * 功能描述:用户信息视图模型
  *
  * @author lilinxi
  * @since 2022-10-21

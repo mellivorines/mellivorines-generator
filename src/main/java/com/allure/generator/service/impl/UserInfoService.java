@@ -1,21 +1,18 @@
 
 package com.allure.generator.service.impl;
 
-import java.util.List;
-
-import org.springframework.stereotype.Service;
-
+import cn.hutool.core.bean.BeanUtil;
 import com.allure.generator.model.UserInfoVO;
 import com.allure.generator.repository.dao.IUserInfoDao;
 import com.allure.generator.repository.entity.UserInfoPO;
 import com.allure.generator.service.IUserInfoService;
-
-import cn.hutool.core.bean.BeanUtil;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
- * 功能描述:
- *
+ * 功能描述:用户信息相关
  * @author lilinxi
  * @since 2022-10-19
  */

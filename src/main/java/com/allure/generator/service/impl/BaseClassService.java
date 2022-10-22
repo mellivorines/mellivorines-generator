@@ -1,21 +1,18 @@
 
 package com.allure.generator.service.impl;
 
-import java.util.List;
-
-import org.springframework.stereotype.Service;
-
+import cn.hutool.core.bean.BeanUtil;
 import com.allure.generator.model.BaseClassVO;
 import com.allure.generator.repository.dao.IBaseClassDao;
 import com.allure.generator.repository.entity.BaseClassPO;
 import com.allure.generator.service.IBaseClassService;
-
-import cn.hutool.core.bean.BeanUtil;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
- * 功能描述:
- *
+ * 功能描述:实体类的基类视图相关
  * @author lilinxi
  * @since 2022-10-20
  */

@@ -9,7 +9,7 @@ import com.allure.generator.repository.mapper.UserInfoMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 /**
- * 功能描述:
+ * 功能描述:用户信息相关
  *
  * @author lilinxi
  * @since 2022-10-19

@@ -1,19 +1,18 @@
 
 package com.allure.generator.repository.entity;
 
-import java.io.Serializable;
-import java.time.LocalDateTime;
-
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.fasterxml.jackson.annotation.JsonFormat;
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
 /**
- * 功能描述:
+ * 功能描述:实体映射基类
  *
  * @author lilinxi
  * @since 2022-10-19

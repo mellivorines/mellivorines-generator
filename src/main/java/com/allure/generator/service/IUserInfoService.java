@@ -1,12 +1,12 @@
 
 package com.allure.generator.service;
 
-import java.util.List;
-
 import com.allure.generator.model.UserInfoVO;
 
+import java.util.List;
+
 /**
- * 功能描述:
+ * 功能描述:用户信息相关
  *
  * @author lilinxi
  * @since 2022-10-19
