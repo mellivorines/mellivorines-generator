@@ -31,7 +31,6 @@ public class MybatisPlusConfig {
     }
 }
 
-@Slf4j
 @Component
 class MyMetaObjectHandler implements MetaObjectHandler {
     @Override
