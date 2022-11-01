@@ -11,12 +11,6 @@ import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
-/**
- * 功能描述:swagger配置
- *
- * @author lilinxi
- * @since 2022-10-19
- */
 @Configuration
 public class SwaggerConfig {
     @Bean
