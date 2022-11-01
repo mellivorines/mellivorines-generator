@@ -1,5 +1,5 @@
 
-package com.allure.generator;
+package com.mellivorines.generator;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @since 2022-10-19
  */
 @SpringBootTest
-class AllureCodeGeneratorApplicationTests {
+class GeneratorApplicationTests {
 
     @Test
     void contextLoads() {

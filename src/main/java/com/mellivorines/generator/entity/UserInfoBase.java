@@ -1,4 +1,4 @@
-package com.allure.generator.entity;
+package com.mellivorines.generator.entity;
 
 import org.babyfish.jimmer.sql.Column;
 import org.babyfish.jimmer.sql.MappedSuperclass;
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
  * @Date 2022-10-28 09:15:07
  */
 @MappedSuperclass
-public interface AllureUserInfoBase {
+public interface UserInfoBase {
 
 
     @Nullable

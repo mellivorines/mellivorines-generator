@@ -8,11 +8,11 @@
         <version>2.7.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.allure</groupId>
-    <artifactId>code-generator</artifactId>
+    <groupId>com.mellivorines</groupId>
+    <artifactId>mellivorines-generator</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>code-generator</name>
-    <description>code-generator</description>
+    <name>mellivorines-generator</name>
+    <description>mellivorines-generator</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
@@ -63,7 +63,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
                 <configuration>
                     <annotationProcessorPaths>
                         <path>

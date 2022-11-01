@@ -1,4 +1,4 @@
-package com.allure.generator.dao;
+package com.mellivorines.generator.dao;
 
 import org.babyfish.jimmer.sql.JSqlClient;
 import org.babyfish.jimmer.sql.ast.mutation.BatchSaveResult;

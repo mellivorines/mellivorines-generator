@@ -1,10 +1,10 @@
 
-package com.allure.generator.controller;
+package com.mellivorines.generator.controller;
 
-import com.allure.generator.dao.AllureUserInfoDao;
-import com.allure.generator.entity.AllureUserInfo;
-import com.allure.generator.entity.AllureUserInfoFetcher;
-import com.allure.generator.entity.AllureUserInfoTable;
+import com.mellivorines.generator.dao.UserInfoDao;
+import com.mellivorines.generator.entity.UserInfo;
+import com.mellivorines.generator.entity.UserInfoFetcher;
+import com.mellivorines.generator.entity.UserInfoTable;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.babyfish.jimmer.sql.JSqlClient;
@@ -24,7 +24,7 @@ import java.util.List;
 public class UserInfoController {
 
     @Resource
-    AllureUserInfoDao allureUserInfoDao;
+    UserInfoDao userInfoDao;
 
     @Resource
     private JSqlClient sqlClient;
@@ -32,12 +32,12 @@ public class UserInfoController {
     @PostMapping(value = "/list")
     @ApiOperation("所有用户")
     @ResponseBody
-    public List<AllureUserInfo> getList() {
+    public List<UserInfo> getList() {
         Fluent fluent = sqlClient.createFluent();
-        AllureUserInfoTable allureUserInfoTable = new AllureUserInfoTable();
-        List<AllureUserInfo> execute = fluent.query(allureUserInfoTable)
+        UserInfoTable allureUserInfoTable = new UserInfoTable();
+        List<UserInfo> execute = fluent.query(allureUserInfoTable)
                 .groupBy(allureUserInfoTable.id())
-                .select(allureUserInfoTable.fetch(AllureUserInfoFetcher.$.userName().password()))
+                .select(allureUserInfoTable.fetch(UserInfoFetcher.$.userName().password()))
                 .execute();
         return execute;
     }

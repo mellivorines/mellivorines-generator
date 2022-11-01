@@ -1,13 +1,12 @@
-package com.allure.generator.entity;
+package com.mellivorines.generator.entity;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.babyfish.jimmer.sql.*;
 import org.jetbrains.annotations.Nullable;
 
 
 @Entity
-@Table(name = "allure_user_info")
-public interface AllureUserInfo extends AllureUserInfoBase {
+@Table(name = "user_info")
+public interface UserInfo extends UserInfoBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

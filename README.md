@@ -11,7 +11,7 @@
 
 ## 本地启动
 - 通过git下载源码
-- 创建数据库allure_generator，数据库编码为utf8mb4
+- 创建数据库generator，数据库编码为utf8mb4
 - 执行db/mysql.sql文件，初始化数据
 - 修改application.yml，更新MySQL账号和密码、数据库名称
 - 运行GeneratorApplication.java，则可启动项目

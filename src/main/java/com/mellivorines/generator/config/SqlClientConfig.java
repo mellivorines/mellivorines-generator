@@ -1,7 +1,7 @@
-package com.allure.generator.config;
+package com.mellivorines.generator.config;
 
-import com.allure.generator.GeneratorApplication;
-import com.allure.generator.entity.AllureUserInfo;
+import com.mellivorines.generator.GeneratorApplication;
+import com.mellivorines.generator.entity.UserInfo;
 import org.babyfish.jimmer.sql.JSqlClient;
 import org.babyfish.jimmer.sql.dialect.MySqlDialect;
 import org.babyfish.jimmer.sql.runtime.ConnectionManager;
@@ -40,7 +40,7 @@ public class SqlClientConfig {
                 .setEntityManager(
                         new EntityManager(
                                 GeneratorApplication.class.getClassLoader(),
-                                AllureUserInfo.class.getPackage().getName()
+                                UserInfo.class.getPackage().getName()
                         )
                 )
                 .build();

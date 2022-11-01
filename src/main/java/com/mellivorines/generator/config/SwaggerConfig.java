@@ -1,5 +1,5 @@
 
-package com.allure.generator.config;
+package com.mellivorines.generator.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
