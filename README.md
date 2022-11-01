@@ -1,5 +1,5 @@
 ## 项目说明
-- allure-generator是一款低代码生成器，可根据自定义模板内容，快速生成代码，可实现项目的快速开发、上线，减少重复的代码编写，开发人员只需专注业务逻辑即可。
+- mellivorines-generator是一款低代码生成器，可根据自定义模板内容，快速生成代码，可实现项目的快速开发、上线，减少重复的代码编写，开发人员只需专注业务逻辑即可。
 
 
 ## 项目特点
@@ -11,7 +11,7 @@
 
 ## 本地启动
 - 通过git下载源码
-- 创建数据库allure_generator，数据库编码为utf8mb4
+- 创建数据库mellivorines_generator，数据库编码为utf8mb4
 - 执行db/mysql.sql文件，初始化数据
 - 修改application.yml，更新MySQL账号和密码、数据库名称
 - 运行GeneratorApplication.java，则可启动项目
