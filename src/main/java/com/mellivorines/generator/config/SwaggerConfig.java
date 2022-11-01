@@ -16,10 +16,10 @@ public class SwaggerConfig {
     @Bean
     public Docket docket() {
         return new Docket(DocumentationType.OAS_30)
-                .apiInfo(new ApiInfoBuilder().contact(new Contact("allure", "", "lilinxi015@163.com"))
-                        .title("allure代码生成器").build())
+                .apiInfo(new ApiInfoBuilder().contact(new Contact("mellivorines", "", "lilinxi015@163.com"))
+                        .title("mellivorines代码生成器").build())
                 .select().apis(RequestHandlerSelectors.any()).paths(PathSelectors.regex("(?!/error.*).*")).build()
-                .groupName("allure");
+                .groupName("mellivorines");
     }
 
 }

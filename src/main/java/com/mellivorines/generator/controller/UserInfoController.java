@@ -34,12 +34,12 @@ public class UserInfoController {
     @ResponseBody
     public List<UserInfo> getList() {
         Fluent fluent = sqlClient.createFluent();
-        UserInfoTable allureUserInfoTable = new UserInfoTable();
-        List<UserInfo> execute = fluent.query(allureUserInfoTable)
-                .groupBy(allureUserInfoTable.id())
-                .select(allureUserInfoTable.fetch(UserInfoFetcher.$.userName().password()))
+        UserInfoTable mellivorinesUserInfoTable = new UserInfoTable();
+        List<UserInfo> userInfoList = fluent.query(mellivorinesUserInfoTable)
+                .groupBy(mellivorinesUserInfoTable.id())
+                .select(mellivorinesUserInfoTable.fetch(UserInfoFetcher.$.userName().password()))
                 .execute();
-        return execute;
+        return userInfoList;
     }
 
 }

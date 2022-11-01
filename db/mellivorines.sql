@@ -5,7 +5,7 @@
  Source Server Type    : MySQL
  Source Server Version : 50733
  Source Host           : localhost:3306
- Source Schema         : allure
+ Source Schema         : mellivorines
 
  Target Server Type    : MySQL
  Target Server Version : 50733
@@ -37,7 +37,7 @@ CREATE TABLE `gen_base_class`  (
 -- ----------------------------
 -- Records of gen_base_class
 -- ----------------------------
-INSERT INTO `gen_base_class` VALUES (1, 'com.allure.generator.common.entity', 'BaseEntity', 'id,creator,create_time,updater,update_time,version,deleted', '使用该基类，则需要表里有这些字段', NULL, NULL, NULL, NULL);
+INSERT INTO `gen_base_class` VALUES (1, 'com.mellivorines.generator.common.entity', 'BaseEntity', 'id,creator,create_time,updater,update_time,version,deleted', '使用该基类，则需要表里有这些字段', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for gen_datasource
@@ -139,8 +139,8 @@ CREATE TABLE `gen_project_modify`  (
 -- ----------------------------
 -- Records of gen_project_modify
 -- ----------------------------
-INSERT INTO `gen_project_modify` VALUES (1, 'allure-boot', 'maku', 'net.maku', 'D:/allure/allure-boot', 'baba-boot', 'baba', 'com.baba', '.git,.idea,target,logs', 'java,xml,yml,txt', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `gen_project_modify` VALUES (2, 'allure-cloud', 'maku', 'net.maku', 'D:/allure/allure-cloud', 'baba-cloud', 'baba', 'com.baba', '.git,.idea,target,logs', 'java,xml,yml,txt', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `gen_project_modify` VALUES (1, 'mellivorines-boot', 'maku', 'net.maku', 'D:/mellivorines/mellivorines-boot', 'baba-boot', 'baba', 'com.baba', '.git,.idea,target,logs', 'java,xml,yml,txt', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `gen_project_modify` VALUES (2, 'mellivorines-cloud', 'maku', 'net.maku', 'D:/mellivorines/mellivorines-cloud', 'baba-cloud', 'baba', 'com.baba', '.git,.idea,target,logs', 'java,xml,yml,txt', NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for gen_table
