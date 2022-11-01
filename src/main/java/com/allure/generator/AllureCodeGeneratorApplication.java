@@ -19,7 +19,6 @@ import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 public class AllureCodeGeneratorApplication {
 
     public static void main(String[] args) {
-        System.out.println("http://localhost:3000/doc.html");
         SpringApplication.run(AllureCodeGeneratorApplication.class, args);
     }
 
