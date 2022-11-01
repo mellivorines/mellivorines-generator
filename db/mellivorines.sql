@@ -5,7 +5,7 @@
  Source Server Type    : MySQL
  Source Server Version : 50733
  Source Host           : localhost:3306
- Source Schema         : allure
+ Source Schema         : mellivorines
 
  Target Server Type    : MySQL
  Target Server Version : 50733
@@ -18,10 +18,10 @@ SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Table structure for allure_gen_base_class
+-- Table structure for mellivorines_gen_base_class
 -- ----------------------------
-DROP TABLE IF EXISTS `allure_gen_base_class`;
-CREATE TABLE `allure_gen_base_class`  (
+DROP TABLE IF EXISTS `mellivorines_gen_base_class`;
+CREATE TABLE `mellivorines_gen_base_class`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `package_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '基类包名',
   `code` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '基类编码',
@@ -35,15 +35,15 @@ CREATE TABLE `allure_gen_base_class`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '基类管理' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of allure_gen_base_class
+-- Records of mellivorines_gen_base_class
 -- ----------------------------
-INSERT INTO `allure_gen_base_class` VALUES (1, 'com.allure.generator.common.entity', 'BaseEntity', 'id,creator,create_time,updater,update_time,version,deleted', '使用该基类，则需要表里有这些字段', NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_base_class` VALUES (1, 'com.mellivorines.generator.common.entity', 'BaseEntity', 'id,creator,create_time,updater,update_time,version,deleted', '使用该基类，则需要表里有这些字段', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
--- Table structure for allure_gen_datasource
+-- Table structure for mellivorines_gen_datasource
 -- ----------------------------
-DROP TABLE IF EXISTS `allure_gen_datasource`;
-CREATE TABLE `allure_gen_datasource`  (
+DROP TABLE IF EXISTS `mellivorines_gen_datasource`;
+CREATE TABLE `mellivorines_gen_datasource`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `db_type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '数据库类型',
   `conn_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '连接名',
@@ -58,14 +58,14 @@ CREATE TABLE `allure_gen_datasource`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '数据源管理' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of allure_gen_datasource
+-- Records of mellivorines_gen_datasource
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for allure_gen_field_type
+-- Table structure for mellivorines_gen_field_type
 -- ----------------------------
-DROP TABLE IF EXISTS `allure_gen_field_type`;
-CREATE TABLE `allure_gen_field_type`  (
+DROP TABLE IF EXISTS `mellivorines_gen_field_type`;
+CREATE TABLE `mellivorines_gen_field_type`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `column_type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '字段类型',
   `attr_type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '属性类型',
@@ -79,45 +79,45 @@ CREATE TABLE `allure_gen_field_type`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '字段类型管理' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of allure_gen_field_type
+-- Records of mellivorines_gen_field_type
 -- ----------------------------
-INSERT INTO `allure_gen_field_type` VALUES (1, 'datetime', 'Date', 'java.util.Date', NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (2, 'date', 'Date', 'java.util.Date', NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (3, 'tinyint', 'Integer', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (4, 'smallint', 'Integer', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (5, 'mediumint', 'Integer', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (6, 'int', 'Integer', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (7, 'integer', 'Integer', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (8, 'bigint', 'Long', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (9, 'float', 'Float', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (10, 'double', 'Double', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (11, 'decimal', 'BigDecimal', 'java.math.BigDecimal', NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (12, 'bit', 'Boolean', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (13, 'char', 'String', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (14, 'varchar', 'String', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (15, 'tinytext', 'String', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (16, 'text', 'String', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (17, 'mediumtext', 'String', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (18, 'longtext', 'String', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (19, 'timestamp', 'Date', 'java.util.Date', NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (20, 'NUMBER', 'Integer', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (21, 'BINARY_INTEGER', 'Integer', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (22, 'BINARY_FLOAT', 'Float', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (23, 'BINARY_DOUBLE', 'Double', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (24, 'VARCHAR2', 'String', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (25, 'NVARCHAR', 'String', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (26, 'NVARCHAR2', 'String', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (27, 'CLOB', 'String', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (28, 'int8', 'Long', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (29, 'int4', 'Integer', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (30, 'int2', 'Integer', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_field_type` VALUES (31, 'numeric', 'BigDecimal', 'java.math.BigDecimal', NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (1, 'datetime', 'Date', 'java.util.Date', NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (2, 'date', 'Date', 'java.util.Date', NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (3, 'tinyint', 'Integer', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (4, 'smallint', 'Integer', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (5, 'mediumint', 'Integer', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (6, 'int', 'Integer', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (7, 'integer', 'Integer', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (8, 'bigint', 'Long', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (9, 'float', 'Float', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (10, 'double', 'Double', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (11, 'decimal', 'BigDecimal', 'java.math.BigDecimal', NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (12, 'bit', 'Boolean', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (13, 'char', 'String', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (14, 'varchar', 'String', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (15, 'tinytext', 'String', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (16, 'text', 'String', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (17, 'mediumtext', 'String', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (18, 'longtext', 'String', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (19, 'timestamp', 'Date', 'java.util.Date', NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (20, 'NUMBER', 'Integer', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (21, 'BINARY_INTEGER', 'Integer', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (22, 'BINARY_FLOAT', 'Float', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (23, 'BINARY_DOUBLE', 'Double', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (24, 'VARCHAR2', 'String', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (25, 'NVARCHAR', 'String', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (26, 'NVARCHAR2', 'String', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (27, 'CLOB', 'String', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (28, 'int8', 'Long', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (29, 'int4', 'Integer', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (30, 'int2', 'Integer', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_field_type` VALUES (31, 'numeric', 'BigDecimal', 'java.math.BigDecimal', NULL, NULL, NULL, NULL);
 
 -- ----------------------------
--- Table structure for allure_gen_project_modify
+-- Table structure for mellivorines_gen_project_modify
 -- ----------------------------
-DROP TABLE IF EXISTS `allure_gen_project_modify`;
-CREATE TABLE `allure_gen_project_modify`  (
+DROP TABLE IF EXISTS `mellivorines_gen_project_modify`;
+CREATE TABLE `mellivorines_gen_project_modify`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `project_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '项目名',
   `project_code` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '项目标识',
@@ -137,16 +137,16 @@ CREATE TABLE `allure_gen_project_modify`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '项目名变更' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of allure_gen_project_modify
+-- Records of mellivorines_gen_project_modify
 -- ----------------------------
-INSERT INTO `allure_gen_project_modify` VALUES (1, 'allure-boot', 'maku', 'net.maku', 'D:/allure/allure-boot', 'baba-boot', 'baba', 'com.baba', '.git,.idea,target,logs', 'java,xml,yml,txt', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `allure_gen_project_modify` VALUES (2, 'allure-cloud', 'maku', 'net.maku', 'D:/allure/allure-cloud', 'baba-cloud', 'baba', 'com.baba', '.git,.idea,target,logs', 'java,xml,yml,txt', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_project_modify` VALUES (1, 'mellivorines-boot', 'maku', 'net.maku', 'D:/mellivorines/mellivorines-boot', 'baba-boot', 'baba', 'com.baba', '.git,.idea,target,logs', 'java,xml,yml,txt', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `mellivorines_gen_project_modify` VALUES (2, 'mellivorines-cloud', 'maku', 'net.maku', 'D:/mellivorines/mellivorines-cloud', 'baba-cloud', 'baba', 'com.baba', '.git,.idea,target,logs', 'java,xml,yml,txt', NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
--- Table structure for allure_gen_table
+-- Table structure for mellivorines_gen_table
 -- ----------------------------
-DROP TABLE IF EXISTS `allure_gen_table`;
-CREATE TABLE `allure_gen_table`  (
+DROP TABLE IF EXISTS `mellivorines_gen_table`;
+CREATE TABLE `mellivorines_gen_table`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `table_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '表名',
   `class_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '类名',
@@ -172,14 +172,14 @@ CREATE TABLE `allure_gen_table`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '代码生成表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of allure_gen_table
+-- Records of mellivorines_gen_table
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for allure_gen_table_field
+-- Table structure for mellivorines_gen_table_field
 -- ----------------------------
-DROP TABLE IF EXISTS `allure_gen_table_field`;
-CREATE TABLE `allure_gen_table_field`  (
+DROP TABLE IF EXISTS `mellivorines_gen_table_field`;
+CREATE TABLE `mellivorines_gen_table_field`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `table_id` bigint(20) NULL DEFAULT NULL COMMENT '表ID',
   `field_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '字段名称',
@@ -211,14 +211,14 @@ CREATE TABLE `allure_gen_table_field`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '代码生成表字段' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of allure_gen_table_field
+-- Records of mellivorines_gen_table_field
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for allure_gen_test_member
+-- Table structure for mellivorines_gen_test_member
 -- ----------------------------
-DROP TABLE IF EXISTS `allure_gen_test_member`;
-CREATE TABLE `allure_gen_test_member`  (
+DROP TABLE IF EXISTS `mellivorines_gen_test_member`;
+CREATE TABLE `mellivorines_gen_test_member`  (
   `member_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '会员ID',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '姓名',
   `gender` tinyint(4) NULL DEFAULT NULL COMMENT '性别',
@@ -232,14 +232,14 @@ CREATE TABLE `allure_gen_test_member`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '测试1' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of allure_gen_test_member
+-- Records of mellivorines_gen_test_member
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for allure_gen_test_student
+-- Table structure for mellivorines_gen_test_student
 -- ----------------------------
-DROP TABLE IF EXISTS `allure_gen_test_student`;
-CREATE TABLE `allure_gen_test_student`  (
+DROP TABLE IF EXISTS `mellivorines_gen_test_student`;
+CREATE TABLE `mellivorines_gen_test_student`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '学生ID',
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '姓名',
   `gender` tinyint(4) NULL DEFAULT NULL COMMENT '性别',
@@ -255,14 +255,14 @@ CREATE TABLE `allure_gen_test_student`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '测试2' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of allure_gen_test_student
+-- Records of mellivorines_gen_test_student
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for allure_user_info
+-- Table structure for mellivorines_user_info
 -- ----------------------------
-DROP TABLE IF EXISTS `allure_user_info`;
-CREATE TABLE `allure_user_info`  (
+DROP TABLE IF EXISTS `mellivorines_user_info`;
+CREATE TABLE `mellivorines_user_info`  (
   `id` int(32) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `user_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户名',
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '密码',
@@ -274,10 +274,10 @@ CREATE TABLE `allure_user_info`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of allure_user_info
+-- Records of mellivorines_user_info
 -- ----------------------------
-INSERT INTO `allure_user_info` VALUES (1, 'admin', '123456', 'lilinxi', 'lilinxi', '2022-10-19 11:26:48', '2022-10-19 11:26:52');
-INSERT INTO `allure_user_info` VALUES (2, 'lilinxi', '123456', 'lilinxi', 'lilinxi', '2022-10-19 14:23:24', '2022-10-19 14:23:24');
-INSERT INTO `allure_user_info` VALUES (3, 'lixingui', '123456', 'lilinxi', 'lilinxi', '2022-10-19 14:29:00', '2022-10-19 14:29:00');
+INSERT INTO `mellivorines_user_info` VALUES (1, 'admin', '123456', 'lilinxi', 'lilinxi', '2022-10-19 11:26:48', '2022-10-19 11:26:52');
+INSERT INTO `mellivorines_user_info` VALUES (2, 'lilinxi', '123456', 'lilinxi', 'lilinxi', '2022-10-19 14:23:24', '2022-10-19 14:23:24');
+INSERT INTO `mellivorines_user_info` VALUES (3, 'lixingui', '123456', 'lilinxi', 'lilinxi', '2022-10-19 14:29:00', '2022-10-19 14:29:00');
 
 SET FOREIGN_KEY_CHECKS = 1;

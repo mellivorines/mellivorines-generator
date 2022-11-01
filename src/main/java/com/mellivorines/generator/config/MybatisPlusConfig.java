@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
  * @since 2022-10-19
  */
 @Configuration
-@MapperScan("com.allure.generator.repository.mapper")
+@MapperScan("com.mellivorines.generator.repository.mapper")
 public class MybatisPlusConfig {
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {

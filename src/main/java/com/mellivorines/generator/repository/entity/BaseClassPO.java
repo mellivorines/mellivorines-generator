@@ -17,7 +17,7 @@ import lombok.EqualsAndHashCode;
  * @since 2022-10-20
  */
 @Data
-@TableName("allure_gen_base_class")
+@TableName("mellivorines_gen_base_class")
 @EqualsAndHashCode(callSuper = true)
 @ApiModel("实体类的基类映射类")
 public class BaseClassPO extends BaseEntity {

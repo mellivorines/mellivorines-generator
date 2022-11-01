@@ -17,7 +17,7 @@ import lombok.EqualsAndHashCode;
  * @since 2022-10-19
  */
 @Data
-@TableName("allure_user_info")
+@TableName("mellivorines_user_info")
 @EqualsAndHashCode(callSuper = true)
 @ApiModel("用户实体映射类")
 public class UserInfoPO extends BaseEntity {

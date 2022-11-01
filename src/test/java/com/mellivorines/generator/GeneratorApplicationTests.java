@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @since 2022-10-19
  */
 @SpringBootTest
-class AllureCodeGeneratorApplicationTests {
+class GeneratorApplicationTests {
 
     @Test
     void contextLoads() {
