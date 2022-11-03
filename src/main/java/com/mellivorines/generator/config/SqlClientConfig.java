@@ -1,6 +1,7 @@
 package com.mellivorines.generator.config;
 
 import com.mellivorines.generator.GeneratorApplication;
+import com.mellivorines.generator.entity.BaseClass;
 import com.mellivorines.generator.entity.UserInfo;
 import org.babyfish.jimmer.sql.JSqlClient;
 import org.babyfish.jimmer.sql.dialect.MySqlDialect;
@@ -40,7 +41,8 @@ public class SqlClientConfig {
                 .setEntityManager(
                         new EntityManager(
                                 GeneratorApplication.class.getClassLoader(),
-                                UserInfo.class.getPackage().getName()
+                                UserInfo.class.getPackage().getName(),
+                                BaseClass.class.getPackage().getName()
                         )
                 )
                 .build();
