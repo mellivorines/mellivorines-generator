@@ -1,11 +1,13 @@
 package com.mellivorines.generator.entity;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.babyfish.jimmer.sql.*;
 import org.jetbrains.annotations.Nullable;
 
 @Entity
 @Table(name = "user_info")
-public interface UserInfo extends UserInfoBase {
+public interface UserInfo extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +19,7 @@ public interface UserInfo extends UserInfoBase {
     String userName();
 
     @Nullable
+    @Column(name = "password")
     String password();
 
 }
