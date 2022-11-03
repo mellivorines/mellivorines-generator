@@ -3,16 +3,11 @@ package com.mellivorines.generator.controller;
 
 import com.mellivorines.generator.dao.UserInfoDao;
 import com.mellivorines.generator.entity.UserInfo;
-import com.mellivorines.generator.entity.UserInfoFetcher;
 import com.mellivorines.generator.entity.UserInfoTable;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.babyfish.jimmer.sql.JSqlClient;
-import org.babyfish.jimmer.sql.fluent.Fluent;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.babyfish.jimmer.sql.ast.mutation.DeleteResult;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -26,20 +21,32 @@ public class UserInfoController {
     @Resource
     UserInfoDao userInfoDao;
 
-    @Resource
-    private JSqlClient sqlClient;
-
-    @PostMapping(value = "/list")
+    @GetMapping(value = "/list")
     @ApiOperation("所有用户")
     @ResponseBody
-    public List<UserInfo> getList() {
-        Fluent fluent = sqlClient.createFluent();
-        UserInfoTable userInfoTable = new UserInfoTable();
-        List<UserInfo> execute = fluent.query(userInfoTable)
-                .groupBy(userInfoTable.id())
-                .select(userInfoTable.fetch(UserInfoFetcher.$.userName().password()))
-                .execute();
-        return execute;
+    public List<UserInfo> getList(@RequestParam("page") Integer page, @RequestParam("size") Integer size) {
+        return userInfoDao.findAllByPage(UserInfoTable.class, page, size);
+    }
+
+    @PostMapping(value = "/save")
+    @ApiOperation("保存用户")
+    @ResponseBody
+    public UserInfo save(@RequestBody UserInfo userInfo) {
+        return userInfoDao.save(userInfo);
+    }
+
+    @PutMapping(value = "/update")
+    @ApiOperation("更新用户")
+    @ResponseBody
+    public UserInfo update(@RequestBody UserInfo userInfo) {
+        return userInfoDao.update(userInfo);
+    }
+
+    @DeleteMapping(value = "/delete")
+    @ApiOperation("删除用户")
+    @ResponseBody
+    public DeleteResult delete(@RequestBody List<Integer> ids) {
+        return userInfoDao.batchDelete(UserInfoTable.class, ids);
     }
 
 }
