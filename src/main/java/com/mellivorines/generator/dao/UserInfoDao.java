@@ -1,8 +1,9 @@
 package com.mellivorines.generator.dao;
 
-import com.mellivorines.generator.entity.*;
+import com.mellivorines.generator.entity.UserInfo;
+import com.mellivorines.generator.entity.UserInfoFetcher;
+import com.mellivorines.generator.entity.UserInfoTable;
 import org.babyfish.jimmer.sql.JSqlClient;
-import org.babyfish.jimmer.sql.ast.query.selectable.RootSelectable;
 import org.babyfish.jimmer.sql.fluent.Fluent;
 import org.springframework.stereotype.Repository;
 
@@ -23,7 +24,7 @@ public class UserInfoDao extends BaseDao<UserInfoTable, UserInfo> {
         return fluent.query(userInfoTable)
                 .groupBy(userInfoTable.id())
                 .select(userInfoTable.fetch(UserInfoFetcher.$.userName().password()))
-                .limit(size, (page-1) * size)
+                .limit(size, (page - 1) * size)
                 .execute();
     }
 

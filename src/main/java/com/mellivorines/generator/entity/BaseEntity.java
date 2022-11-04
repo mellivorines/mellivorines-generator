@@ -1,7 +1,5 @@
 package com.mellivorines.generator.entity;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import org.babyfish.jimmer.sql.Column;
 import org.babyfish.jimmer.sql.MappedSuperclass;
 import org.jetbrains.annotations.Nullable;
@@ -17,7 +15,6 @@ import java.time.LocalDateTime;
  */
 @MappedSuperclass
 public interface BaseEntity {
-
 
     @Nullable
     String creator();

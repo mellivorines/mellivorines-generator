@@ -1,7 +1,5 @@
 package com.mellivorines.generator.entity;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import org.babyfish.jimmer.sql.*;
 import org.jetbrains.annotations.Nullable;
 

@@ -40,7 +40,7 @@ public abstract class BaseDao<T extends Table<?>, E> {
         return sqlClient.getEntities().delete(entityTableClazz, id);
     }
 
-    public DeleteResult batchDelete(Class<T> entityClazz, Collection<Object> ids) {
+    public DeleteResult batchDelete(Class<T> entityClazz, Collection<?> ids) {
         return sqlClient.getEntities().batchDelete(entityClazz, ids);
     }
 

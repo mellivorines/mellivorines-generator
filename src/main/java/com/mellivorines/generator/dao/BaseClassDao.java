@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import java.util.List;
+
 @Repository
 public class BaseClassDao extends BaseDao<BaseClassTable, BaseClass> {
     @Resource
@@ -21,7 +22,7 @@ public class BaseClassDao extends BaseDao<BaseClassTable, BaseClass> {
         return fluent.query(baseClassTable)
                 .groupBy(baseClassTable.id())
                 .select(baseClassTable.fetch(BaseClassFetcher.$.packageName().code().fields().remark()))
-                .limit(size, (page-1) * size)
+                .limit(size, (page - 1) * size)
                 .execute();
     }
 
