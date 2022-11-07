@@ -16,20 +16,38 @@ import java.util.Map;
 @RequestMapping("code/generator")
 public class GeneratorController {
 
-    private static final String classPath = "src/main";
-    private static final String ftlPath = "src/main/resources/template/project";
-    private static final String ftlName = "build.gradle";
+    private static final String ftlPath = "src/main/resources/template";
 
     @GetMapping(value = "/module")
     @ApiOperation("生成模块")
     @ResponseBody
-    public void codeGenerator() throws Exception {
+    public void generateModule() throws Exception {
+
+        String templateFilePath = ftlPath + "/" + "module";
+        String templateFileName = "build.gradle";
+        String outFileClassPath = "src/main";
+
+        Map<String, Object> dataModel = new HashMap<>();
+        dataModel.put("rootProject", "lilinxi");
+
+        FreemarkerUtil.generatorByCustom(templateFilePath, templateFileName, dataModel, outFileClassPath + "/" + "build.gradle");
+
+    }
+
+    @GetMapping(value = "/project")
+    @ApiOperation("生成模块")
+    @ResponseBody
+    public void generateProject() throws Exception {
+
+        String templateFilePath = ftlPath + "/" + "project";
+        String templateFileName = "build.gradle";
+        String outFileClassPath = "src/main";
 
         Map<String, Object> dataModel = new HashMap<>();
 
         dataModel.put("rootProject", "lilinxi");
-
-        FreemarkerUtil.generatorByCustom(ftlName,ftlPath,dataModel,classPath+"/"+"build.gradle");
+        FreemarkerUtil.initConfig(templateFilePath, templateFileName);
+        FreemarkerUtil.generator(dataModel, outFileClassPath + "/" + "build.gradle");
 
     }
 }

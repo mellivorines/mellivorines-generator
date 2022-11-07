@@ -14,29 +14,29 @@ import java.util.Map;
 public class FreemarkerUtil {
     private static Template temp;
 
-    public static void initConfig(String ftlName,String ftlPath) throws IOException {
+    public static void initConfig(String templateFilePath, String templateFileName) throws IOException {
         Configuration configuration = new Configuration(Configuration.VERSION_2_3_31);
-        configuration.setDirectoryForTemplateLoading(new File(ftlPath));
+        configuration.setDirectoryForTemplateLoading(new File(templateFilePath));
         configuration.setObjectWrapper(new DefaultObjectWrapper(Configuration.VERSION_2_3_31));
-        temp = configuration.getTemplate(ftlName + ".ftl");
+        temp = configuration.getTemplate(templateFileName + ".ftl");
     }
 
-    public static void generator(Map<String, Object> map, String fileName) throws IOException, TemplateException {
-        FileWriter fileWriter = new FileWriter(fileName);
+    public static void generator(Map<String, Object> map, String outFileName) throws IOException, TemplateException {
+        FileWriter fileWriter = new FileWriter(outFileName);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         temp.process(map, bufferedWriter);
         bufferedWriter.flush();
         fileWriter.close();
     }
 
-    public static void generatorByCustom(String templateFileName,String templateFilePath,Map<String, Object> map, String fileName) throws IOException, TemplateException {
+    public static void generatorByCustom(String templateFilePath, String templateFileName, Map<String, Object> map, String outFileName) throws IOException, TemplateException {
 
         Configuration configuration = new Configuration(Configuration.VERSION_2_3_31);
         configuration.setDirectoryForTemplateLoading(new File(templateFilePath));
         configuration.setObjectWrapper(new DefaultObjectWrapper(Configuration.VERSION_2_3_31));
         temp = configuration.getTemplate(templateFileName + ".ftl");
 
-        FileWriter fileWriter = new FileWriter(fileName);
+        FileWriter fileWriter = new FileWriter(outFileName);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         temp.process(map, bufferedWriter);
         bufferedWriter.flush();
