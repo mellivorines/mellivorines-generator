@@ -1,5 +1,4 @@
-
-package com.mellivorines.generator.config;
+package ${PackageName}.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,13 +11,13 @@ import springfox.documentation.spring.web.plugins.Docket;
 
 @Configuration
 public class SwaggerConfig {
-@Bean
-public Docket docket() {
-return new Docket(DocumentationType.OAS_30)
-.apiInfo(new ApiInfoBuilder().contact(new Contact("mellivorines", "", "lilinxi015@163.com"))
-.title("代码生成器").build())
-.select().apis(RequestHandlerSelectors.any()).paths(PathSelectors.regex("(?!/error.*).*")).build()
-.groupName("mellivorines");
-}
+    @Bean
+    public Docket docket() {
+        return new Docket(DocumentationType.OAS_30)
+                .apiInfo(new ApiInfoBuilder().contact(new Contact("${ProjectName}", "", "${Email}"))
+                        .title("${ProjectName}").build())
+                .select().apis(RequestHandlerSelectors.any()).paths(PathSelectors.regex("(?!/error.*).*")).build()
+                .groupName("${ProjectName}");
+    }
 
 }
