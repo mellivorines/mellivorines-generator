@@ -1,5 +1,6 @@
 package com.mellivorines.generator.controller;
 
+import com.mellivorines.generator.constants.CommonConstant;
 import com.mellivorines.generator.utils.FreemarkerUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -23,14 +24,14 @@ public class GeneratorController {
     @ResponseBody
     public void generateModule() throws Exception {
 
-        String templateFilePath = ftlPath + "/" + "module";
+        String templateFilePath = ftlPath + CommonConstant.SLASH + CommonConstant.GeneratorType.MODULE;
         String templateFileName = "build.gradle";
         String outFileClassPath = "src/main";
 
         Map<String, Object> dataModel = new HashMap<>();
         dataModel.put("rootProject", "lilinxi");
 
-        FreemarkerUtil.generatorByCustom(templateFilePath, templateFileName, dataModel, outFileClassPath + "/" + "build.gradle");
+        FreemarkerUtil.generatorByCustom(templateFilePath, templateFileName, dataModel, outFileClassPath + CommonConstant.SLASH + "build.gradle");
 
     }
 
@@ -39,7 +40,7 @@ public class GeneratorController {
     @ResponseBody
     public void generateProject() throws Exception {
 
-        String templateFilePath = ftlPath + "/" + "project";
+        String templateFilePath = ftlPath + CommonConstant.SLASH + CommonConstant.GeneratorType.PROJECT;
         String templateFileName = "build.gradle";
         String outFileClassPath = "src/main";
 
@@ -47,7 +48,7 @@ public class GeneratorController {
 
         dataModel.put("rootProject", "lilinxi");
         FreemarkerUtil.initConfig(templateFilePath, templateFileName);
-        FreemarkerUtil.generator(dataModel, outFileClassPath + "/" + "build.gradle");
+        FreemarkerUtil.generator(dataModel, outFileClassPath + CommonConstant.SLASH + "build.gradle");
 
     }
 }
