@@ -1,8 +1,12 @@
+<#if module??>
 package ${PackageName}.config;
-
-import ${PackageName}.GeneratorApplication;
-import ${PackageName}.entity.BaseClass;
-import ${PackageName}.entity.UserInfo;
+import ${PackageName}.${project}Application;
+import ${PackageName}.entity.BaseEntity;
+<#else>
+package ${PackageName}.config;
+import ${PackageName}.${module}.${project}Application;
+import ${PackageName}.${module}.entity.BaseEntity;
+</#if>
 import org.babyfish.jimmer.sql.JSqlClient;
 import org.babyfish.jimmer.sql.dialect.MySqlDialect;
 import org.babyfish.jimmer.sql.runtime.ConnectionManager;
@@ -22,7 +26,7 @@ public class SqlClientConfig {
     public JSqlClient sqlClient(
             DataSource dataSource
     ) {
-        JSqlClient sqlClient = JSqlClient.newBuilder()
+        return JSqlClient.newBuilder()
                 .setConnectionManager(
                         new ConnectionManager() {
                             @Override
@@ -40,12 +44,10 @@ public class SqlClientConfig {
                 .setExecutor(Executor.log())
                 .setEntityManager(
                         new EntityManager(
-                                ${ProjectName}Application.class.getClassLoader(),
-                                UserInfo.class.getPackage().getName(),
-                                BaseClass.class.getPackage().getName()
+                                GeneratorApplication.class.getClassLoader(),
+                                BaseEntity.class.getPackage().getName()
                         )
                 )
                 .build();
-        return sqlClient;
     }
 }
