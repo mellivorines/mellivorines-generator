@@ -1,4 +1,8 @@
+<#if module??>
 package ${PackageName}.config;
+<#else>
+package ${PackageName}.config;
+</#if>
 
 import org.babyfish.jimmer.jackson.ImmutableModule;
 import org.springframework.context.annotation.Bean;
