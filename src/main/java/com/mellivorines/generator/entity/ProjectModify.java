@@ -1,8 +1,6 @@
 package com.mellivorines.generator.entity;
 
-import org.babyfish.jimmer.sql.Column;
-import org.babyfish.jimmer.sql.Entity;
-import org.babyfish.jimmer.sql.Table;
+import org.babyfish.jimmer.sql.*;
 import org.jetbrains.annotations.Nullable;
 
 @Entity

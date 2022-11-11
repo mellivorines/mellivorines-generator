@@ -6,10 +6,6 @@ import org.jetbrains.annotations.Nullable;
 @Entity
 @Table(name = "gen_base_class")
 public interface BaseClass extends BaseEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    int id();
 
     @Nullable
     @Column(name = "package_name")

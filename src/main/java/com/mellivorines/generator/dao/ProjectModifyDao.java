@@ -4,7 +4,6 @@ import com.mellivorines.generator.entity.ProjectModify;
 import com.mellivorines.generator.entity.ProjectModifyFetcher;
 import com.mellivorines.generator.entity.ProjectModifyTable;
 import org.babyfish.jimmer.sql.JSqlClient;
-import org.babyfish.jimmer.sql.fluent.Fluent;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -17,9 +16,8 @@ public class ProjectModifyDao extends BaseDao<ProjectModifyTable, ProjectModify>
 
     @Override
     public List<ProjectModify> findAllByPage(Class<ProjectModifyTable> entityTableClazz, int page, int size) {
-        Fluent fluent = sqlClient.createFluent();
         ProjectModifyTable projectModifyTable = new ProjectModifyTable();
-        return fluent.query(projectModifyTable)
+        return sqlClient.createQuery(projectModifyTable)
                 .groupBy(projectModifyTable.id())
                 .select(projectModifyTable.fetch(ProjectModifyFetcher.$.allTableFields()))
                 .limit(size, (page - 1) * size)

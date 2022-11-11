@@ -4,7 +4,6 @@ import com.mellivorines.generator.entity.UserInfo;
 import com.mellivorines.generator.entity.UserInfoFetcher;
 import com.mellivorines.generator.entity.UserInfoTable;
 import org.babyfish.jimmer.sql.JSqlClient;
-import org.babyfish.jimmer.sql.fluent.Fluent;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -19,9 +18,8 @@ public class UserInfoDao extends BaseDao<UserInfoTable, UserInfo> {
 
     @Override
     public List<UserInfo> findAllByPage(Class<UserInfoTable> entityTableClazz, int page, int size) {
-        Fluent fluent = sqlClient.createFluent();
         UserInfoTable userInfoTable = new UserInfoTable();
-        return fluent.query(userInfoTable)
+        return sqlClient.createQuery(userInfoTable)
                 .groupBy(userInfoTable.id())
                 .select(userInfoTable.fetch(UserInfoFetcher.$.userName().password()))
                 .limit(size, (page - 1) * size)

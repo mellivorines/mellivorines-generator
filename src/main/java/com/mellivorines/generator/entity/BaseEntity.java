@@ -1,7 +1,6 @@
 package com.mellivorines.generator.entity;
 
-import org.babyfish.jimmer.sql.Column;
-import org.babyfish.jimmer.sql.MappedSuperclass;
+import org.babyfish.jimmer.sql.*;
 import org.jetbrains.annotations.Nullable;
 
 import java.time.LocalDateTime;
@@ -15,6 +14,11 @@ import java.time.LocalDateTime;
  */
 @MappedSuperclass
 public interface BaseEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    int id();
 
     @Nullable
     String creator();
