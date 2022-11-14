@@ -1,6 +1,7 @@
 
 package com.mellivorines.generator.config;
 
+import com.mellivorines.generator.constants.UserInfoConstant;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -15,10 +16,10 @@ public class SwaggerConfig {
     @Bean
     public Docket docket() {
         return new Docket(DocumentationType.OAS_30)
-                .apiInfo(new ApiInfoBuilder().contact(new Contact("mellivorines", "", "lilinxi015@163.com"))
-                        .title("代码生成器").build())
+                .apiInfo(new ApiInfoBuilder().contact(new Contact(UserInfoConstant.AUTHOR, UserInfoConstant.URL, UserInfoConstant.EMAIL))
+                        .title(UserInfoConstant.TITLE).build())
                 .select().apis(RequestHandlerSelectors.any()).paths(PathSelectors.regex("(?!/error.*).*")).build()
-                .groupName("mellivorines");
+                .groupName(UserInfoConstant.AUTHOR);
     }
 
 }
