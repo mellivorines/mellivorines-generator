@@ -2,7 +2,6 @@ package com.mellivorines.generator.config;
 
 import com.mellivorines.generator.GeneratorApplication;
 import com.mellivorines.generator.entity.BaseClass;
-import com.mellivorines.generator.entity.UserInfo;
 import org.babyfish.jimmer.sql.JSqlClient;
 import org.babyfish.jimmer.sql.dialect.MySqlDialect;
 import org.babyfish.jimmer.sql.runtime.ConnectionManager;
@@ -22,16 +21,16 @@ public class SqlClientConfig {
     public JSqlClient sqlClient(
             DataSource dataSource
     ) {
-        JSqlClient sqlClient = JSqlClient.newBuilder()
+        return JSqlClient.newBuilder()
                 .setConnectionManager(
                         new ConnectionManager() {
                             @Override
                             public <R> R execute(Function<Connection, R> block) {
-                                Connection con = DataSourceUtils.getConnection(dataSource);
+                                Connection connection = DataSourceUtils.getConnection(dataSource);
                                 try {
-                                    return block.apply(con);
+                                    return block.apply(connection);
                                 } finally {
-                                    DataSourceUtils.releaseConnection(con, dataSource);
+                                    DataSourceUtils.releaseConnection(connection, dataSource);
                                 }
                             }
                         }
@@ -41,11 +40,9 @@ public class SqlClientConfig {
                 .setEntityManager(
                         new EntityManager(
                                 GeneratorApplication.class.getClassLoader(),
-                                UserInfo.class.getPackage().getName(),
                                 BaseClass.class.getPackage().getName()
                         )
                 )
                 .build();
-        return sqlClient;
     }
 }
