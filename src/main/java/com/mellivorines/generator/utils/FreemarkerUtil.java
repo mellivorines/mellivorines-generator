@@ -1,6 +1,7 @@
 package com.mellivorines.generator.utils;
 
 import com.mellivorines.generator.constants.CommonConstant;
+import com.mellivorines.generator.constants.TemplateTypeConstant;
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
 import freemarker.template.Template;
@@ -19,7 +20,7 @@ public class FreemarkerUtil {
         Configuration configuration = new Configuration(Configuration.VERSION_2_3_31);
         configuration.setDirectoryForTemplateLoading(new File(templateFilePath));
         configuration.setObjectWrapper(new DefaultObjectWrapper(Configuration.VERSION_2_3_31));
-        temp = configuration.getTemplate(templateFileName + CommonConstant.TemplateType.FILE_TYPE);
+        temp = configuration.getTemplate(templateFileName + TemplateTypeConstant.FILE_TYPE_FTL);
     }
 
     public static void generator(Map<String, Object> map, String outFileName) throws IOException, TemplateException {
@@ -35,7 +36,7 @@ public class FreemarkerUtil {
         Configuration configuration = new Configuration(Configuration.VERSION_2_3_31);
         configuration.setDirectoryForTemplateLoading(new File(templateFilePath));
         configuration.setObjectWrapper(new DefaultObjectWrapper(Configuration.VERSION_2_3_31));
-        temp = configuration.getTemplate(templateFileName + CommonConstant.TemplateType.FILE_TYPE);
+        temp = configuration.getTemplate(templateFileName + TemplateTypeConstant.FILE_TYPE_FTL);
 
         FileWriter fileWriter = new FileWriter(outFileName);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);

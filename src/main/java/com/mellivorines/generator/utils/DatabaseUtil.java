@@ -2,6 +2,7 @@ package com.mellivorines.generator.utils;
 
 import com.mellivorines.generator.config.GenDataSource;
 import com.mellivorines.generator.constants.DbType;
+import oracle.jdbc.driver.OracleConnection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,9 +16,9 @@ public class DatabaseUtil {
         Class.forName(dataSource.getDbType().getDriverClass());
 
         Connection connection = DriverManager.getConnection(dataSource.getConnUrl(), dataSource.getUsername(), dataSource.getPassword());
-//        if (dataSource.getDbType() == DbType.Oracle) {
-//            ((OracleConnection) connection).setRemarksReporting(true);
-//        }
+        if (dataSource.getDbType() == DbType.Oracle) {
+            ((OracleConnection) connection).setRemarksReporting(true);
+        }
 
         return connection;
     }
