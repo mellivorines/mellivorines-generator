@@ -2,7 +2,7 @@ package com.mellivorines.generator.config;
 
 import com.mellivorines.generator.config.query.*;
 import com.mellivorines.generator.constants.DbType;
-import com.mellivorines.generator.entity.GeneratorDataSourceTable;
+import com.mellivorines.generator.entity.GenDatasourceTable;
 import com.mellivorines.generator.utils.DatabaseUtil;
 
 import java.sql.Connection;
@@ -11,7 +11,7 @@ public class GenDataSource {
     /**
      * 数据源ID
      */
-    private Long id;
+    private Integer id;
     /**
      * 数据库类型
      */
@@ -33,11 +33,11 @@ public class GenDataSource {
 
     private Connection connection;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -90,12 +90,12 @@ public class GenDataSource {
     }
 
 
-    public GenDataSource(GeneratorDataSourceTable entity) {
-        this.id = entity.get("id");
-        this.dbType = DbType.valueOf(entity.get("dbType"));
-        this.connUrl = entity.get("connUrl");
-        this.username = entity.get("username");
-        this.password = entity.get("password");
+    public GenDataSource(GenDatasourceTable genDatasourceTable) {
+        this.id = Integer.valueOf(genDatasourceTable.id().toString());
+        this.dbType = DbType.valueOf(genDatasourceTable.dbType().toString());
+        this.connUrl = String.valueOf(genDatasourceTable.connUrl());
+        this.username = genDatasourceTable.username().toString();
+        this.password = genDatasourceTable.password().toString();
 
         if (dbType == DbType.MySQL) {
             this.dbQuery = new MySqlQuery();
@@ -115,7 +115,7 @@ public class GenDataSource {
     }
 
     public GenDataSource(Connection connection) throws SQLException {
-        this.id = 0L;
+        this.id = 0;
         this.dbType = DbType.valueOf(connection.getMetaData().getDatabaseProductName());
 
         if (dbType == DbType.MySQL) {
