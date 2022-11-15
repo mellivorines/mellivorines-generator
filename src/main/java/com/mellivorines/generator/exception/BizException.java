@@ -1,6 +1,5 @@
 package com.mellivorines.generator.exception;
 
-import com.mellivorines.generator.constants.ErrorCode;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 

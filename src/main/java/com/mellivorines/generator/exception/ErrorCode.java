@@ -1,4 +1,4 @@
-package com.mellivorines.generator.constants;
+package com.mellivorines.generator.exception;
 
 public enum ErrorCode {
 
