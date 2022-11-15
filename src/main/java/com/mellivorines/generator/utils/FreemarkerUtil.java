@@ -1,6 +1,5 @@
 package com.mellivorines.generator.utils;
 
-import com.mellivorines.generator.constants.CommonConstant;
 import com.mellivorines.generator.constants.TemplateTypeConstant;
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
