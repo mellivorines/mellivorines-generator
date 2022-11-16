@@ -71,7 +71,7 @@ public class GeneratorController {
         ZipOutputStream zip = new ZipOutputStream(outputStream);
 
         // 生成代码
-        for (String tableId : tableIds.split(",")) {
+        for (String tableId : tableIds.split(CommonConstant.SEMICOLON)) {
             generatorService.downloadCode(Long.parseLong(tableId), zip);
         }
 

@@ -3,6 +3,7 @@ package com.mellivorines.generator.utils;
 import cn.hutool.core.util.StrUtil;
 import com.mellivorines.generator.config.GenDataSource;
 import com.mellivorines.generator.config.query.AbstractQuery;
+import com.mellivorines.generator.constants.CommonConstant;
 import com.mellivorines.generator.constants.DbType;
 import com.mellivorines.generator.exception.BizException;
 import com.mellivorines.generator.model.GenTableFieldModel;
@@ -116,8 +117,8 @@ public class DatabaseUtil {
                 genTableFieldModel.setTableId(tableId);
                 genTableFieldModel.setColumnName(resultSet.getString(query.fieldName()));
                 String fieldType = resultSet.getString(query.fieldType());
-                if (fieldType.contains(" ")) {
-                    fieldType = fieldType.substring(0, fieldType.indexOf(" "));
+                if (fieldType.contains(CommonConstant.SPACE)) {
+                    fieldType = fieldType.substring(0, fieldType.indexOf(CommonConstant.SPACE));
                 }
                 genTableFieldModel.setDataType(fieldType);
                 genTableFieldModel.setColumnComment(resultSet.getString(query.fieldComment()));
@@ -140,7 +141,7 @@ public class DatabaseUtil {
      * @return 模块名
      */
     public static String getModuleName(String packageName) {
-        return StrUtil.subAfter(packageName, ".", true);
+        return StrUtil.subAfter(packageName, CommonConstant.POINT, true);
     }
 
     /**
@@ -150,7 +151,7 @@ public class DatabaseUtil {
      * @return 功能名
      */
     public static String getFunctionName(String tableName) {
-        String functionName = StrUtil.subAfter(tableName, "_", true);
+        String functionName = StrUtil.subAfter(tableName, CommonConstant.HORIZONTAL, true);
         if (StrUtil.isBlank(functionName)) {
             functionName = tableName;
         }

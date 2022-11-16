@@ -4,6 +4,14 @@ public interface CommonConstant {
 
     String SLASH = "/";
 
+    String SEMICOLON = ",";
+
+    String HORIZONTAL = "_";
+
+    String SPACE = " ";
+
+    String POINT = ".";
+
     String TEMPLATE_FILE_BASE_PATH = "src/main/resources/template";
 
 
