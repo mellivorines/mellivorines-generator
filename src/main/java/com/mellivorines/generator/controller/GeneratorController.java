@@ -56,7 +56,7 @@ public class GeneratorController {
 
         Map<String, Object> dataModel = new HashMap<>();
 
-        dataModel.put("rootProject", "lilinxi");
+        dataModel.put("rootProject", "mellivorines");
         FreemarkerUtil.initConfig(templateFilePath, templateFileName);
         FreemarkerUtil.generator(dataModel, outFileClassPath + CommonConstant.SLASH + "build.gradle");
 
