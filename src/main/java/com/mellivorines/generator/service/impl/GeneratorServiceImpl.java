@@ -1,8 +1,10 @@
 package com.mellivorines.generator.service.impl;
 
 import com.mellivorines.generator.service.GeneratorService;
+import com.mellivorines.generator.utils.DateUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.zip.ZipOutputStream;
@@ -36,6 +38,8 @@ public class GeneratorServiceImpl implements GeneratorService {
         //3.项目信息
 
         //4.开发者信息
+        dataModel.put("datetime", DateUtils.format(new Date(), DateUtils.DATE_TIME_PATTERN));
+        dataModel.put("date", DateUtils.format(new Date(), DateUtils.DATE_PATTERN));
 
         //5.设置字段分类
 
