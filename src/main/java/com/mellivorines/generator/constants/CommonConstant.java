@@ -12,6 +12,10 @@ public interface CommonConstant {
 
     String POINT = ".";
 
+    String DATE_TIME = "datetime";
+
+    String DATE = "date";
+
     String TEMPLATE_FILE_BASE_PATH = "src/main/resources/template";
 
 
