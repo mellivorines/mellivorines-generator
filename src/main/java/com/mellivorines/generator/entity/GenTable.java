@@ -17,6 +17,11 @@ public interface GenTable {
     @Column(name = "id")
     int id();
 
+
+    @Nullable
+    @Column(name = "database_id")
+    String databaseId();
+    
     @Nullable
     @Column(name = "table_name")
     String tableName();
