@@ -72,7 +72,7 @@ public class GeneratorController {
 
         // 生成代码
         for (String tableId : tableIds.split(CommonConstant.SEMICOLON)) {
-            generatorService.downloadCode(Long.parseLong(tableId), zip);
+            generatorService.downloadCode(Integer.valueOf(tableId), zip);
         }
 
         IoUtil.close(zip);

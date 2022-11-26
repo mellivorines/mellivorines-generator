@@ -6,5 +6,5 @@ public interface GeneratorService {
 
     void downloadCode(Integer tableId, ZipOutputStream zip);
 
-    void generatorCode(Long tableId);
+    void generatorCode(Integer tableId);
 }

@@ -1,7 +1,7 @@
 package com.mellivorines.generator.utils;
 
 import cn.hutool.core.util.StrUtil;
-import com.mellivorines.generator.config.GenDataSource;
+import com.mellivorines.generator.config.MyDataSource;
 import com.mellivorines.generator.config.query.AbstractQuery;
 import com.mellivorines.generator.constants.CommonConstant;
 import com.mellivorines.generator.constants.DbType;
@@ -23,7 +23,7 @@ public class DatabaseUtil {
 
     private static final int CONNECTION_TIMEOUTS_SECONDS = 6;
 
-    public static Connection getConnection(GenDataSource dataSource) throws ClassNotFoundException, SQLException {
+    public static Connection getConnection(MyDataSource dataSource) throws ClassNotFoundException, SQLException {
         DriverManager.setLoginTimeout(CONNECTION_TIMEOUTS_SECONDS);
         Class.forName(dataSource.getDbType().getDriverClass());
 
@@ -40,7 +40,7 @@ public class DatabaseUtil {
      *
      * @param datasource 数据源
      */
-    public static List<GenTableModel> getTableList(GenDataSource datasource) {
+    public static List<GenTableModel> getTableList(MyDataSource datasource) {
         List<GenTableModel> genTableModels = new ArrayList<>();
         try {
             AbstractQuery query = datasource.getDbQuery();
@@ -70,7 +70,7 @@ public class DatabaseUtil {
      * @param datasource 数据源
      * @param tableName  表名
      */
-    public static GenTableModel getTable(GenDataSource datasource, String tableName) {
+    public static GenTableModel getTable(MyDataSource datasource, String tableName) {
         try {
             AbstractQuery query = datasource.getDbQuery();
 
@@ -98,7 +98,7 @@ public class DatabaseUtil {
      * @param tableId    表ID
      * @param tableName  表名
      */
-    public static List<GenTableFieldModel> getTableFieldList(GenDataSource datasource, Integer tableId, String tableName) {
+    public static List<GenTableFieldModel> getTableFieldList(MyDataSource datasource, Integer tableId, String tableName) {
         List<GenTableFieldModel> genTableFieldModels = new ArrayList<>();
 
         try {

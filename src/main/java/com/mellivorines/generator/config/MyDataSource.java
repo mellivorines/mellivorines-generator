@@ -7,7 +7,7 @@ import com.mellivorines.generator.utils.DatabaseUtil;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-public class GenDataSource {
+public class MyDataSource {
     /**
      * 数据源ID
      */
@@ -90,7 +90,7 @@ public class GenDataSource {
     }
 
 
-    public GenDataSource(GenDatasourceTable genDatasourceTable) {
+    public MyDataSource(GenDatasourceTable genDatasourceTable) {
         this.id = Integer.valueOf(genDatasourceTable.id().toString());
         this.dbType = DbType.valueOf(genDatasourceTable.dbType().toString());
         this.connUrl = String.valueOf(genDatasourceTable.connUrl());
@@ -114,7 +114,7 @@ public class GenDataSource {
         }
     }
 
-    public GenDataSource(Connection connection) throws SQLException {
+    public MyDataSource(Connection connection) throws SQLException {
         this.id = 0;
         this.dbType = DbType.valueOf(connection.getMetaData().getDatabaseProductName());
 
