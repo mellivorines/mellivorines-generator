@@ -10,6 +10,9 @@ public interface TemplateConstant {
     String FILE_TYPE_VM = ".vm";
 
 
+    /**
+     * 是否开发swagger
+     */
     String SWAGGER = "swagger";
 
     /**
