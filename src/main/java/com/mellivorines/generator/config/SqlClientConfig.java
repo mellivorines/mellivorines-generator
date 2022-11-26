@@ -1,5 +1,6 @@
 package com.mellivorines.generator.config;
 
+import com.mellivorines.generator.entity.JimmerModule;
 import org.babyfish.jimmer.sql.JSqlClient;
 import org.babyfish.jimmer.sql.dialect.MySqlDialect;
 import org.babyfish.jimmer.sql.runtime.ConnectionManager;
