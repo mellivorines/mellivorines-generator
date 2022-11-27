@@ -18,7 +18,6 @@ public interface CommonConstant {
 
     String TEMPLATE_FILE_BASE_PATH = "src/main/resources/template";
 
-
     interface GeneratorType {
 
         String MODULE = "module";
