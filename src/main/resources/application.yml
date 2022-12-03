@@ -15,3 +15,8 @@ spring:
     log-request-details: true
 app:
   uploadPath: /Users/lilinxi/IdeaProjects/mellivorines-generator/src/main/resources/template/
+  maxFileSize: 10 #单位MB
+  fileTypeArray:
+    - ".ftl"
+    - ".vm"
+    - ".jpg"

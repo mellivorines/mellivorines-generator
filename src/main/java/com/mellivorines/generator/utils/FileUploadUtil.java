@@ -3,7 +3,6 @@ package com.mellivorines.generator.utils;
 import com.mellivorines.generator.config.AppProperties;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -113,28 +112,21 @@ public class FileUploadUtil {
         return flag;
     }
 
-    public static Pair<Boolean, String> checkFile(MultipartFile multiFile, AppProperties appProperties) {
+    public static boolean checkFile(MultipartFile multiFile, AppProperties appProperties) {
         if (multiFile.isEmpty()) {
-            return Pair.of(false, "文件为空");
+            return false;
         }
-        //获取
         String filename = multiFile.getOriginalFilename();
         String contentType = multiFile.getContentType();
         if (StringUtils.isBlank(filename)) {
-            return Pair.of(false, "文件名为空");
+            return false;
         }
-        long size = multiFile.getSize();//字节
-        //log.info("收到的请求文件信息：原生文件名：{},文件类型：{},文件大小：{}", filename, contentType, size);
-        //获取文件后缀
+        long size = multiFile.getSize();
         String suffix = filename.substring(filename.lastIndexOf("."));
-        //判断配置的文件列表里是否支持该文件类型
         if (!ArrayUtils.contains(appProperties.getFileTypeArray(), suffix)) {
-            return Pair.of(false, "不支持该类型文件上传");
+            return false;
         }
-        double fileSize = size / 1024.0;//单位kb
-        if (fileSize > appProperties.getMaxFileSize()) {
-            return Pair.of(false, "文件大小超过限制");
-        }
-        return Pair.of(true, "验证通过");
+        double fileSize = size / (1024.0*1024.0);
+        return !(fileSize > appProperties.getMaxFileSize());
     }
 }

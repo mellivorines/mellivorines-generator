@@ -29,7 +29,11 @@ public class TemplateController {
     public boolean uploadTemplate(@RequestParam(value = "file") MultipartFile multipartFile,
                                   @RequestParam(value = "path") String path,
                                   @RequestParam(value = "name") String uploadFileName) {
-        return FileUploadUtil.uploadToServer(multipartFile, StringUtils.join(appProperties.getUploadPath(),path,SLASH), uploadFileName);
+        if (FileUploadUtil.checkFile(multipartFile, appProperties)){
+            return FileUploadUtil.uploadToServer(multipartFile, StringUtils.join(appProperties.getUploadPath(), path, SLASH), uploadFileName);
+        }else {
+            return false;
+        }
     }
 
 
