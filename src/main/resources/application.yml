@@ -14,4 +14,4 @@ spring:
       matching-strategy: ANT_PATH_MATCHER
     log-request-details: true
 app:
-  uploadPath: /Users/lilinxi/IdeaProjects/mellivorines-generator/src/main/resources/
+  uploadPath: /Users/lilinxi/IdeaProjects/mellivorines-generator/src/main/resources/template/
