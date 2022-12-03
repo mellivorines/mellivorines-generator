@@ -31,7 +31,6 @@ public class PostgreSqlQuery implements AbstractQuery {
                 + "where t1.relname = '%s' and t2.attrelid = t1.oid and t2.attnum>0";
     }
 
-
     @Override
     public String tableName() {
         return "tablename";

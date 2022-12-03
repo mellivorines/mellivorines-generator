@@ -19,7 +19,6 @@ public class OracleQuery implements AbstractQuery{
             sql.append("and dt.table_name = '").append(tableName).append("' ");
         }
         sql.append("order by dt.table_name asc");
-
         return sql.toString();
     }
 
@@ -47,18 +46,15 @@ public class OracleQuery implements AbstractQuery{
         return "COLUMN_NAME";
     }
 
-
     @Override
     public String fieldType() {
         return "DATA_TYPE";
     }
 
-
     @Override
     public String fieldComment() {
         return "COMMENTS";
     }
-
 
     @Override
     public String fieldKey() {

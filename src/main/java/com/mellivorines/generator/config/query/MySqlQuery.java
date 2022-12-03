@@ -19,7 +19,6 @@ public class MySqlQuery implements AbstractQuery{
             sql.append("and table_name = '").append(tableName).append("' ");
         }
         sql.append("order by table_name asc");
-
         return sql.toString();
     }
 
