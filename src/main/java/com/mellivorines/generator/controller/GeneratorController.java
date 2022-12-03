@@ -64,7 +64,12 @@ public class GeneratorController {
 
     /**
      * 生成代码（zip压缩包）
+     *
+     * @param tableIds 表名
+     * @param response 响应体
+     * @throws Exception 异常
      */
+    @ApiOperation("生成zip")
     @GetMapping("/download")
     public void download(String tableIds, HttpServletResponse response) throws Exception {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
