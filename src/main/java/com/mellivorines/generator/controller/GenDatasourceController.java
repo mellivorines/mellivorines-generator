@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@Api(tags = "基类处理")
+@Api(tags = "数据源")
 @RequestMapping("api/datasource")
 public class GenDatasourceController {
     @Resource
