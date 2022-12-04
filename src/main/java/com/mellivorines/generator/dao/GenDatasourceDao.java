@@ -10,9 +10,10 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Repository
-public class GenDatasourceDao extends BaseDao<GenDatasourceTable, GenDatasource>{
+public class GenDatasourceDao extends BaseDao<GenDatasourceTable, GenDatasource> {
     @Resource
     private JSqlClient sqlClient;
+
     @Override
     public List<GenDatasource> findAllByPage(Class<GenDatasourceTable> entityTableClazz, int page, int size) {
         GenDatasourceTable genDatasourceTable = new GenDatasourceTable();

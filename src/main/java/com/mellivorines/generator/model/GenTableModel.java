@@ -1,9 +1,20 @@
 package com.mellivorines.generator.model;
 
+import com.mellivorines.generator.entity.GenTable;
+import com.mellivorines.generator.entity.GenTableProps;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.babyfish.jimmer.ImmutableConverter;
 
 public class GenTableModel {
+    private static final ImmutableConverter<GenTable, GenTableModel> BOOK_CONVERTER =
+            ImmutableConverter
+                    .newBuilder(GenTable.class, GenTableModel.class)
+                    .map(GenTableProps.ID, mapping -> {
+                        mapping.useIf(input -> input.id != null);
+                    })
+                    .autoMapOtherScalars(true)
+                    .build();
 
     Integer id;
 
@@ -16,7 +27,11 @@ public class GenTableModel {
     public GenTableModel() {
     }
 
-    public GenTableModel(int id, int datasourceId, String tableName, String tableComment) {
+    public GenTable toGenTable() {
+        return BOOK_CONVERTER.convert(this);
+    }
+
+    public GenTableModel(Integer id, int datasourceId, String tableName, String tableComment) {
         this.id = id;
         this.datasourceId = datasourceId;
         this.tableName = tableName;

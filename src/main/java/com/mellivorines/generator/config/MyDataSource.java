@@ -1,12 +1,17 @@
 package com.mellivorines.generator.config;
 
-import com.mellivorines.generator.config.query.*;
+import com.mellivorines.generator.config.query.AbstractQuery;
+import com.mellivorines.generator.config.query.MySqlQuery;
+import com.mellivorines.generator.config.query.OracleQuery;
+import com.mellivorines.generator.config.query.PostgreSqlQuery;
+import com.mellivorines.generator.config.query.SQLServerQuery;
 import com.mellivorines.generator.constants.DbType;
-import com.mellivorines.generator.entity.GenDatasourceTable;
+import com.mellivorines.generator.model.GenDatasourceModel;
 import com.mellivorines.generator.utils.DatabaseUtil;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+
 public class MyDataSource {
     /**
      * 数据源ID
@@ -90,12 +95,12 @@ public class MyDataSource {
     }
 
 
-    public MyDataSource(GenDatasourceTable genDatasourceTable) {
-        this.id = Integer.valueOf(genDatasourceTable.id().toString());
-        this.dbType = DbType.valueOf(genDatasourceTable.dbType().toString());
-        this.connUrl = String.valueOf(genDatasourceTable.connUrl());
-        this.username = genDatasourceTable.username().toString();
-        this.password = genDatasourceTable.password().toString();
+    public MyDataSource(GenDatasourceModel genDatasourceModel) {
+        this.id = genDatasourceModel.getId();
+        this.connUrl = genDatasourceModel.getConnUrl();
+        this.username = genDatasourceModel.getUsername();
+        this.password = genDatasourceModel.getPassword();
+        this.dbType = DbType.valueOf(genDatasourceModel.getDbType());
 
         if (dbType == DbType.MySQL) {
             this.dbQuery = new MySqlQuery();
