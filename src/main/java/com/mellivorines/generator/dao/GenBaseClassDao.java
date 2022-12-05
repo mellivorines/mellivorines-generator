@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Repository
-public class BaseClassDao extends BaseDao<GenBaseClassTable, GenBaseClass> {
+public class GenBaseClassDao extends BaseDao<GenBaseClassTable, GenBaseClass> {
     @Resource
     private JSqlClient sqlClient;
 

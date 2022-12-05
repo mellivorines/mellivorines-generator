@@ -8,8 +8,7 @@ import org.babyfish.jimmer.sql.JSqlClient;
 import javax.annotation.Resource;
 import java.util.List;
 
-public class AuthorDao extends BaseDao<GenAuthorTable, GenAuthor>{
-
+public class GenAuthorDao extends BaseDao<GenAuthorTable, GenAuthor>{
     @Resource
     private JSqlClient sqlClient;
     @Override

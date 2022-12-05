@@ -6,14 +6,12 @@ import com.mellivorines.generator.dao.GenDatasourceDao;
 import com.mellivorines.generator.dao.GenTableDao;
 import com.mellivorines.generator.entity.GenDatasource;
 import com.mellivorines.generator.entity.GenDatasourceTable;
-import com.mellivorines.generator.entity.GenTable;
 import com.mellivorines.generator.model.GenDatasourceModel;
 import com.mellivorines.generator.model.GenTableModel;
 import com.mellivorines.generator.utils.DatabaseUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
-import org.babyfish.jimmer.sql.ast.mutation.BatchSaveResult;
 import org.babyfish.jimmer.sql.ast.mutation.DeleteResult;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,7 +26,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @Api(tags = "数据源")
@@ -84,7 +81,7 @@ public class GenDatasourceController {
 
     @ApiOperation("根据数据源ID，获取全部数据表")
     @GetMapping("table/list/{id}")
-    public BatchSaveResult<GenTable> tableList(@PathVariable("id") Long id) {
+    public boolean tableList(@PathVariable("id") Long id) {
         try {
             GenDatasource genDatasource = datasourceDao.findById(GenDatasource.class, id).get();
             GenDatasourceModel genDatasourceModel = new GenDatasourceModel();
@@ -92,10 +89,10 @@ public class GenDatasourceController {
             MyDataSource myDataSource = new MyDataSource(genDatasourceModel);
             myDataSource.setDbType(DbType.MySQL);
             List<GenTableModel> tableList = DatabaseUtil.getTableList(myDataSource);
-            List<GenTable> collect = tableList.stream().map(GenTableModel::toGenTable).collect(Collectors.toList());
-            return genTableDao.batchSave(collect);
+            tableList.forEach(genTableModel -> genTableDao.save(genTableModel.toGenTable()));
+            return true;
         } catch (Exception e) {
-            return null;
+            return false;
         }
     }
 }

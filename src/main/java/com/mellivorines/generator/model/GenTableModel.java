@@ -2,8 +2,6 @@ package com.mellivorines.generator.model;
 
 import com.mellivorines.generator.entity.GenTable;
 import com.mellivorines.generator.entity.GenTableProps;
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.babyfish.jimmer.ImmutableConverter;
 
 public class GenTableModel {
@@ -16,9 +14,13 @@ public class GenTableModel {
                     .autoMapOtherScalars(true)
                     .build();
 
+    public GenTable toGenTable() {
+        return BOOK_CONVERTER.convert(this);
+    }
+
     Integer id;
 
-    Integer datasourceId;
+    Integer databaseId;
 
     String tableName;
 
@@ -27,31 +29,20 @@ public class GenTableModel {
     public GenTableModel() {
     }
 
-    public GenTable toGenTable() {
-        return BOOK_CONVERTER.convert(this);
-    }
-
-    public GenTableModel(Integer id, int datasourceId, String tableName, String tableComment) {
-        this.id = id;
-        this.datasourceId = datasourceId;
-        this.tableName = tableName;
-        this.tableComment = tableComment;
-    }
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getDatasourceId() {
-        return datasourceId;
+    public Integer getDatabaseId() {
+        return databaseId;
     }
 
-    public void setDatasourceId(int datasourceId) {
-        this.datasourceId = datasourceId;
+    public void setDatabaseId(Integer databaseId) {
+        this.databaseId = databaseId;
     }
 
     public String getTableName() {
@@ -68,21 +59,5 @@ public class GenTableModel {
 
     public void setTableComment(String tableComment) {
         this.tableComment = tableComment;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-
-        if (!(o instanceof GenTableModel)) return false;
-
-        GenTableModel genTableModel = (GenTableModel) o;
-
-        return new EqualsBuilder().append(getId(), genTableModel.getId()).append(getDatasourceId(), genTableModel.getDatasourceId()).append(getTableName(), genTableModel.getTableName()).append(getTableComment(), genTableModel.getTableComment()).isEquals();
-    }
-
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder(17, 37).append(getId()).append(getDatasourceId()).append(getTableName()).append(getTableComment()).toHashCode();
     }
 }

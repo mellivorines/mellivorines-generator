@@ -1,6 +1,22 @@
 package com.mellivorines.generator.model;
 
+import com.mellivorines.generator.entity.GenDatasource;
+import com.mellivorines.generator.entity.GenDatasourceProps;
+import org.babyfish.jimmer.ImmutableConverter;
+
 public class GenDatasourceModel {
+    private static final ImmutableConverter<GenDatasource, GenDatasourceModel> BOOK_CONVERTER =
+            ImmutableConverter
+                    .newBuilder(GenDatasource.class, GenDatasourceModel.class)
+                    .map(GenDatasourceProps.ID, mapping -> {
+                        mapping.useIf(input -> input.id != null);
+                    })
+                    .autoMapOtherScalars(true)
+                    .build();
+
+    public GenDatasource toGenDatasource() {
+        return BOOK_CONVERTER.convert(this);
+    }
 
     private Integer id;
 

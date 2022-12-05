@@ -18,7 +18,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class DatabaseUtil {
 
@@ -51,10 +50,10 @@ public class DatabaseUtil {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 GenTableModel genTableModel = new GenTableModel();
-                genTableModel.setId(new Random().nextInt(1000));
+                genTableModel.setId(0);
                 genTableModel.setTableName(resultSet.getString(query.tableName()));
                 genTableModel.setTableComment(resultSet.getString(query.tableComment()));
-                genTableModel.setDatasourceId(datasource.getId());
+                genTableModel.setDatabaseId(datasource.getId());
                 genTableModels.add(genTableModel);
             }
 
@@ -81,9 +80,10 @@ public class DatabaseUtil {
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
                 GenTableModel genTableModel = new GenTableModel();
+                genTableModel.setId(0);
                 genTableModel.setTableName(rs.getString(query.tableName()));
                 genTableModel.setTableComment(rs.getString(query.tableComment()));
-                genTableModel.setDatasourceId(datasource.getId());
+                genTableModel.setDatabaseId(datasource.getId());
                 return genTableModel;
             }
         } catch (Exception e) {

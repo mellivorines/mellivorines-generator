@@ -1,7 +1,7 @@
 package com.mellivorines.generator.controller;
 
 
-import com.mellivorines.generator.dao.BaseClassDao;
+import com.mellivorines.generator.dao.GenBaseClassDao;
 import com.mellivorines.generator.entity.GenBaseClass;
 import com.mellivorines.generator.entity.GenBaseClassTable;
 import io.swagger.annotations.Api;
@@ -25,33 +25,33 @@ import java.util.List;
 @RequestMapping("api/base-class")
 public class GenBaseClassController {
     @Resource
-    BaseClassDao baseClassDao;
+    GenBaseClassDao genBaseClassDao;
 
     @GetMapping(value = "/list")
     @ApiOperation("所有基类")
     @ResponseBody
     public List<GenBaseClass> getList(@RequestParam("page") Integer page, @RequestParam("size") Integer size) {
-        return baseClassDao.findAllByPage(GenBaseClassTable.class, page, size);
+        return genBaseClassDao.findAllByPage(GenBaseClassTable.class, page, size);
     }
 
     @PostMapping(value = "/save")
     @ApiOperation("保存基类")
     @ResponseBody
     public GenBaseClass save(@RequestBody GenBaseClass genBaseClass) {
-        return baseClassDao.save(genBaseClass);
+        return genBaseClassDao.save(genBaseClass);
     }
 
     @PutMapping(value = "/update")
     @ApiOperation("更新基类")
     @ResponseBody
     public GenBaseClass update(@RequestBody GenBaseClass genBaseClass) {
-        return baseClassDao.update(genBaseClass);
+        return genBaseClassDao.update(genBaseClass);
     }
 
     @DeleteMapping(value = "/delete")
     @ApiOperation("删除基类")
     @ResponseBody
     public DeleteResult delete(@RequestBody List<Integer> ids) {
-        return baseClassDao.batchDelete(GenBaseClassTable.class, ids);
+        return genBaseClassDao.batchDelete(GenBaseClassTable.class, ids);
     }
 }

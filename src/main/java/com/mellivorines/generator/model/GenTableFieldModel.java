@@ -1,9 +1,23 @@
 package com.mellivorines.generator.model;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
+import com.mellivorines.generator.entity.GenTableField;
+import com.mellivorines.generator.entity.GenTableFieldProps;
+import org.babyfish.jimmer.ImmutableConverter;
 
 public class GenTableFieldModel {
+    private static final ImmutableConverter<GenTableField, GenTableFieldModel> BOOK_CONVERTER =
+            ImmutableConverter
+                    .newBuilder(GenTableField.class, GenTableFieldModel.class)
+                    .map(GenTableFieldProps.ID, mapping -> {
+                        mapping.useIf(input -> input.id != null);
+                    })
+                    .autoMapOtherScalars(true)
+                    .build();
+
+    public GenTableField toGenTableField() {
+        return BOOK_CONVERTER.convert(this);
+    }
+
     Integer id;
 
     Integer tableId;
@@ -74,21 +88,5 @@ public class GenTableFieldModel {
 
     public void setColumnKey(String columnKey) {
         this.columnKey = columnKey;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-
-        if (!(o instanceof GenTableFieldModel)) return false;
-
-        GenTableFieldModel genTableFieldModel = (GenTableFieldModel) o;
-
-        return new EqualsBuilder().append(getId(), genTableFieldModel.getId()).append(getTableId(), genTableFieldModel.getTableId()).append(getColumnName(), genTableFieldModel.getColumnName()).append(getDataType(), genTableFieldModel.getDataType()).append(getColumnComment(), genTableFieldModel.getColumnComment()).append(getColumnKey(), genTableFieldModel.getColumnKey()).isEquals();
-    }
-
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder(17, 37).append(getId()).append(getTableId()).append(getColumnName()).append(getDataType()).append(getColumnComment()).append(getColumnKey()).toHashCode();
     }
 }
