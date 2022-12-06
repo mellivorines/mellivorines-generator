@@ -4,10 +4,12 @@ import com.mellivorines.generator.entity.GenAuthor;
 import com.mellivorines.generator.entity.GenAuthorFetcher;
 import com.mellivorines.generator.entity.GenAuthorTable;
 import org.babyfish.jimmer.sql.JSqlClient;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import java.util.List;
 
+@Repository
 public class GenAuthorDao extends BaseDao<GenAuthorTable, GenAuthor>{
     @Resource
     private JSqlClient sqlClient;

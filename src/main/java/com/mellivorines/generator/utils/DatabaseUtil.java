@@ -116,6 +116,7 @@ public class DatabaseUtil {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 GenTableFieldModel genTableFieldModel = new GenTableFieldModel();
+                genTableFieldModel.setId(0);
                 genTableFieldModel.setTableId(tableId);
                 genTableFieldModel.setColumnName(resultSet.getString(query.fieldName()));
                 String fieldType = resultSet.getString(query.fieldType());

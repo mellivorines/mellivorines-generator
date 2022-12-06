@@ -30,8 +30,6 @@ public class GeneratorController {
     @ApiOperation("生成模块")
     @ResponseBody
     public void generateModule() throws Exception {
-
-
         String templateFilePath = CommonConstant.TEMPLATE_FILE_BASE_PATH + CommonConstant.SLASH + CommonConstant.GeneratorType.MODULE;
         String templateFileName = "Controller.java";
         String outFileClassPath = "src/main";
