@@ -20,4 +20,3 @@ app:
   fileTypeArray:
     - ".ftl"
     - ".vm"
-    - ".jpg"
