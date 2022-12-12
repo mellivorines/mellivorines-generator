@@ -1,9 +1,12 @@
 package com.mellivorines.generator.dao;
 
 import com.mellivorines.generator.entity.GenTableField;
+import com.mellivorines.generator.entity.GenTableFieldDraft;
 import com.mellivorines.generator.entity.GenTableFieldFetcher;
+import com.mellivorines.generator.entity.GenTableFieldProps;
 import com.mellivorines.generator.entity.GenTableFieldTable;
 import org.babyfish.jimmer.sql.JSqlClient;
+import org.babyfish.jimmer.sql.ast.query.Example;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -21,5 +24,10 @@ public class GenTableFieldDao extends BaseDao<GenTableFieldTable, GenTableField>
                 .select(genTableFieldTable.fetch(GenTableFieldFetcher.$.allScalarFields()))
                 .limit(size, (page - 1) * size)
                 .execute();
+    }
+
+    public List<GenTableField> findAllByTableID(Class<GenTableField> genTableFieldClass, int id) {
+        GenTableField genTableField = GenTableFieldDraft.$.produce(draft -> draft.setTableId(id));
+        return sqlClient.getEntities().findByExample(Example.of(genTableField), GenTableFieldProps.COLUMN_NAME.asc());
     }
 }

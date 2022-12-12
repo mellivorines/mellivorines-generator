@@ -2,6 +2,10 @@ package com.mellivorines.generator.controller;
 
 import cn.hutool.core.io.IoUtil;
 import com.mellivorines.generator.constants.CommonConstant;
+import com.mellivorines.generator.dao.GenAuthorDao;
+import com.mellivorines.generator.dao.GenConfigDao;
+import com.mellivorines.generator.entity.GenAuthor;
+import com.mellivorines.generator.entity.GenConfig;
 import com.mellivorines.generator.service.GeneratorService;
 import com.mellivorines.generator.utils.FreemarkerUtil;
 import io.swagger.annotations.Api;
@@ -15,6 +19,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.zip.ZipOutputStream;
 
@@ -22,6 +27,12 @@ import java.util.zip.ZipOutputStream;
 @Api(tags = "代码生成相关")
 @RequestMapping("code/generator")
 public class GeneratorController {
+
+    @Resource
+    GenAuthorDao genAuthorDao;
+
+    @Resource
+    GenConfigDao genConfigDao;
 
     @Resource
     GeneratorService generatorService;
@@ -73,9 +84,14 @@ public class GeneratorController {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         ZipOutputStream zip = new ZipOutputStream(outputStream);
 
+        List<GenAuthor> authorList = genAuthorDao.findAll(GenAuthor.class);
+        List<GenConfig> genConfigList = genConfigDao.findAll(GenConfig.class);
+        GenAuthor genAuthor = authorList.get(0);
+        GenConfig genConfig = genConfigList.get(0);
+
         // 生成代码
         for (String tableId : tableIds.split(CommonConstant.SEMICOLON)) {
-            generatorService.downloadCode(Integer.valueOf(tableId), zip);
+            generatorService.downloadCode(genConfig,genAuthor,Integer.valueOf(tableId), zip);
         }
 
         IoUtil.close(zip);
