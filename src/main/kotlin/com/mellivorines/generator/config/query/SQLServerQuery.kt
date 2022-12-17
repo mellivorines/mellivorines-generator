@@ -1,44 +1,39 @@
-package com.mellivorines.generator.config.query;
+package com.mellivorines.generator.config.query
 
-import com.github.xiaoymin.knife4j.core.util.StrUtil;
-import com.mellivorines.generator.constants.DbType;
+import com.github.xiaoymin.knife4j.core.util.StrUtil
+import com.mellivorines.generator.constants.DbType
 
-public class SQLServerQuery implements AbstractQuery{
-    @Override
-    public DbType dbType() {
-        return DbType.SQLServer;
+class SQLServerQuery : AbstractQuery {
+    override fun dbType(): DbType? {
+        return DbType.SQLServer
     }
 
-    @Override
-    public String tableSql(String tableName) {
-        StringBuilder sql = new StringBuilder();
+    override fun tableSql(tableName: String?): String? {
+        val sql = StringBuilder()
         sql.append("SELECT DISTINCT d.name as table_name, f.value as table_comment FROM syscolumns a " +
                 "LEFT JOIN systypes b ON a.xusertype= b.xusertype " +
                 "INNER JOIN sysobjects d ON a.id= d.id  AND d.xtype= 'U' AND d.name<> 'dtproperties' " +
                 "LEFT JOIN syscomments e ON a.cdefault= e.id " +
                 "LEFT JOIN sys.extended_properties g ON a.id= g.major_id AND a.colid= g.minor_id " +
-                "LEFT JOIN sys.extended_properties f ON d.id= f.major_id AND f.minor_id= 0 ");
-        sql.append("where 1=1 ");
+                "LEFT JOIN sys.extended_properties f ON d.id= f.major_id AND f.minor_id= 0 ")
+        sql.append("where 1=1 ")
         // 表名查询
         if (StrUtil.isNotBlank(tableName)) {
-            sql.append("and d.name = '").append(tableName).append("' ");
+            sql.append("and d.name = '").append(tableName).append("' ")
         }
-        sql.append("order by d.name asc");
-        return sql.toString();
+        sql.append("order by d.name asc")
+        return sql.toString()
     }
 
-    @Override
-    public String tableName() {
-        return "table_name";
+    override fun tableName(): String? {
+        return "table_name"
     }
 
-    @Override
-    public String tableComment() {
-        return "table_comment";
+    override fun tableComment(): String? {
+        return "table_comment"
     }
 
-    @Override
-    public String tableFieldsSql() {
+    override fun tableFieldsSql(): String? {
         return " Select SCOL.NAME as column_name, STYPE.NAME AS data_type , (case when(\n" +
                 "  SELECT COUNT (*) AS Is_PK\n" +
                 " FROM syscolumns\n" +
@@ -57,26 +52,22 @@ public class SQLServerQuery implements AbstractQuery{
                 "\tLEFT JOIN SYSTYPES AS STYPE ON STYPE.xtype=SCOL.xtype\n" +
                 "\tWhere \n" +
                 "\tSCOL.ID=OBJECT_ID('%s')\n" +
-                "\tAND STYPE.NAME<>'SYSNAME'";
+                "\tAND STYPE.NAME<>'SYSNAME'"
     }
 
-    @Override
-    public String fieldName() {
-        return "column_name";
+    override fun fieldName(): String? {
+        return "column_name"
     }
 
-    @Override
-    public String fieldType() {
-        return "data_type";
+    override fun fieldType(): String? {
+        return "data_type"
     }
 
-    @Override
-    public String fieldComment() {
-        return "column_comment";
+    override fun fieldComment(): String? {
+        return "column_comment"
     }
 
-    @Override
-    public String fieldKey() {
-        return "column_key";
+    override fun fieldKey(): String? {
+        return "column_key"
     }
 }
