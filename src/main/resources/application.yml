@@ -16,7 +16,7 @@ spring:
 app:
   downloadPath: src/main/resources/template/
   uploadPath: src/main/resources/template/
-  maxFileSize: 10 #单位MB
+  maxFileSize: 10 #MB
   fileTypeArray:
     - ".ftl"
     - ".vm"
